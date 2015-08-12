@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150811021053) do
+ActiveRecord::Schema.define(version: 20150812014129) do
 
   create_table "areas", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
-ActiveRecord::Schema.define(version: 20150811021942) do
+    t.string   "name",        null: false
+    t.string   "description"
+    t.string   "location"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "item_properties", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "item_property_definition_id"
+    t.string   "value"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "item_property_definitions", force: :cascade do |t|
     t.string   "name",         null: false
@@ -32,7 +41,13 @@ ActiveRecord::Schema.define(version: 20150811021942) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
->>>>>>> d3c333a91915d83a4b9755cbb3d62b0ba1803a8f
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer  "area_id"
+    t.integer  "item_type_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
