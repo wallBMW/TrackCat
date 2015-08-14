@@ -4,10 +4,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
+cpu_brand:
   name: "Brand"
-  item_type: 1
+  item_type: cpu
 
-two:
+cpu_speed:
   name: "Speed"
-  item_type: 1
+  item_type: cpu
+
+cpu_cores:
+  name: "Num Cores"
+  item_type: cpu

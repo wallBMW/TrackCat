@@ -3,4 +3,5 @@ class ItemType < ActiveRecord::Base
   has_many :items, :foreign_key => "item_type_id"
 
   validates :name, presence: true, uniqueness: true, length: { minimum: 2 }
+  validates :description, length: { maximum: 255 }
 end
