@@ -4,8 +4,17 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-#one: {}
-# column: value
-#
-#two: {}
-#  column: value
+property_one:
+  item: item_one
+  item_property_definition: cpu_brand
+  value: "INTEL"
+
+property_two:
+  item: item_one
+  item_property_definition: cpu_speed
+  value: "2.0GHz"
+
+property_three:
+  item: item_one
+  item_property_definition: cpu_cores
+  value: "4"

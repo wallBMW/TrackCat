@@ -16,4 +16,11 @@ class ItemTest < ActiveSupport::TestCase
     item.item_type = item_types(:cpu)
     assert item.save, "item save failed with item type"
   end
+
+  test "Item: properties must be accessible from object" do
+    item = items(:item_one)
+
+    assert_not_nil item.item_properties, "item properties value is nil"
+    assert_equal ItemProperty.where(:item => item).length, item.item_properties.length, "item properties do not match db"
+  end
 end
