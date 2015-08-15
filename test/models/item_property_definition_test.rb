@@ -17,4 +17,12 @@ class ItemPropertyDefinitionTest < ActiveSupport::TestCase
     prop_def.name = "Carajillo percolator, grinder sit espresso trifecta"
     assert_not prop_def.save, "saved with long name"
   end
+
+  test "Item Property Definition: item type must be present" do
+    prop_def = ItemPropertyDefinition.new(:name => "Espresso")
+    assert_not prop_def.save, "definition saved without item type"
+
+    prop_def.item_type = item_types(:cpu)
+    assert prop_def.save, "definition save failed with valid item type"
+  end
 end
