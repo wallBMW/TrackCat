@@ -22,8 +22,8 @@ class ItemTypeTest < ActiveSupport::TestCase
   end
 
   test "ItemType: items property should have all items that reference this type" do
-    type1 = item_types(:cpu)
-    area1 = areas(:one)
+    type1 = ItemType.new(:name => "SomeType_1")
+    area1 = areas(:area_one)
 
     Item.new(:area => area1, :item_type => type1).save
     Item.new(:area => area1, :item_type => type1).save
