@@ -18,6 +18,16 @@ class ItemPropertyDefinitionTest < ActiveSupport::TestCase
     assert_not prop_def.save, "saved with long name"
   end
 
+  test "Item Property Definition: name must be unique to item type" do
+    ItemPropertyDefinition.new(:name => "Espresso uniq", :item_type => item_types(:cpu)).save
+
+    dup_def = ItemPropertyDefinition.new(:name => "Espresso uniq", :item_type => item_types(:cpu))
+    assert_not dup_def.save, "duplicate name saved"
+
+    dup_def.item_type = item_types(:ram)
+    assert dup_def.save, "unique name for item type not saved"
+  end
+
   test "Item Property Definition: item type must be present" do
     prop_def = ItemPropertyDefinition.new(:name => "Espresso")
     assert_not prop_def.save, "definition saved without item type"
