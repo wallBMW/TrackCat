@@ -16,4 +16,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not User.new(:name => "Mocha espresso strong swee", :password => "testest").save, "long user name accepted (26 chars)"
     assert_not User.new(:name => "Cream con panna flavour saucer whipped cinnamon strong body. A dark body rich turkish, roast, sit steamed café au lait trifecta pumpkin spice.", :password => "testest").save, "Long user name accepted"
   end
+
+  test "User: password must be between 6 and 72 characters" do
+    assert_not User.new(:name => "test_user5", :password => "").save, "empty password accepted"
+    assert User.new(:name => "test_user6", :password => "abcdef").save, "password of 6 characters not accepted"
+    assert User.new(:name => "test_user7", :password => "Cream con panna flavour saucer whipped cinnamon strong body. A dark body").save, "password of 72 characters not accepted"
+    assert_not User.new(:name => "test_user8", :password => "Cream con panna flavour saucer whipped cinnamon strong body. A dark body rich turkish, roast, sit steamed café au lait trifecta pumpkin spice. Cream con panna flavour saucer whipped cinnamon strong body. A dark body rich turkish, roast, sit steamed café ab").save, "password of 256 characters accepted"
+  end
 end
