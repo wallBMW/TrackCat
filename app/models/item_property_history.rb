@@ -12,6 +12,7 @@ class ItemPropertyHistory < ActiveRecord::Base
     self.user = actor
     self.item = item_prop.item
     self.item_property_definition = item_prop.item_property_definition
+    self.old_value = item_prop.value
     self.new_value = new_val
 
     self.save
