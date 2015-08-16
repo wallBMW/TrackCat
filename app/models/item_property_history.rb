@@ -7,4 +7,14 @@ class ItemPropertyHistory < ActiveRecord::Base
   validates :item_property_definition, presence: true
   validates :user, presence: true
   validates :new_value, presence: true
+
+  def record(actor, item_prop, new_val)
+    self.user = actor
+    self.item = item_prop.item
+    self.item_property_definition = item_prop.item_property_definition
+    self.old_value = item_prop.value
+    self.new_value = new_val
+
+    self.save
+  end
 end
