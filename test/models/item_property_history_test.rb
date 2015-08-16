@@ -17,4 +17,13 @@ class ItemPropertyHistoryTest < ActiveSupport::TestCase
     hist.item = item
     assert hist.save, "item property history not saved with item present"
   end
+
+  test "ItemPropertyHistory: record must return itself on success, false otherwise" do
+    item = items(:item_one)
+    prop = item.item_properties.first
+    hist = ItemPropertyHistory.new
+
+    assert hist.record(users(:armstrhb), prop, "Saturn"), "save failed to return history object"
+    assert_not hist.record(nil, prop, "Saturn"), "save succeeded with nil user"
+  end
 end
