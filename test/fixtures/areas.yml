@@ -11,3 +11,7 @@ area_one:
 area_two:
   name: "Storage2"
   location: "Up the Stairs"
+
+area_three:
+  name: "Storage3"
+  location: "Right beside me"
