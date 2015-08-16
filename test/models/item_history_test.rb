@@ -1,21 +1,15 @@
 require 'test_helper'
 
 class ItemHistoryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
-  test "ItemHistory: verify new area" do
-    item = items(:item_one)
-    hist = ItemHistory.new
+    test "ItemHistory: must save new area value" do
+      item = items(:item_one)
+      hist = ItemHistory.new
 
-    hist.user = users(:wallBMW)
-    hist.old_area = item.area
+      new_value = areas(:area_three)
+      hist.record(users(:wallBMW), item, new_value)
 
-    item.area = areas(:area_three)
-    hist.new_area = item.area
-
-    assert item.save, "item saved with updated area"
-    assert hist.save, "history saved with updated area"
+      assert_equal new_value, hist.new_area, "record saved with new value"
     end
+
 end
