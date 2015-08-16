@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813010752) do
+ActiveRecord::Schema.define(version: 20150816015448) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name",        null: false
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 20150813010752) do
     t.integer  "item_type_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "item_property_histories", force: :cascade do |t|
+    t.integer  "item_id",                     null: false
+    t.integer  "item_property_definition_id", null: false
+    t.string   "old_value"
+    t.string   "new_value"
+    t.integer  "user_id",                     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "item_types", force: :cascade do |t|
