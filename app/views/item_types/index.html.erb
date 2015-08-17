@@ -1,0 +1,25 @@
+<div class="jumbotron">
+  <h1>Item Types</h1>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <% if @item_types.length == 0 %>
+      <div class="alert alert-info">There are no defined item types.</div>
+    <% else %>
+      <div class="row">
+        <div class="col-sm-2"><strong>Name</strong></div>
+        <div class="col-sm-6"><strong>Description</strong></div>
+        <div class="col-sm-2 text-center"><strong>Items</strong></div>
+        <div class="col-sm-2 text-center"><strong>Properties</strong></div>
+      </div>
+    <% end %>
+    <% @item_types.each do |item_type| %>
+      <div class="row">
+        <div class="col-sm-2"><%= item_type.name %></div>
+        <div class="col-sm-6"><%= item_type.description %></div>
+        <div class="col-sm-2 text-center"><%= item_type.items.length %></div>
+        <div class="col-sm-2 text-center"><%= item_type.item_property_definitions.length %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
