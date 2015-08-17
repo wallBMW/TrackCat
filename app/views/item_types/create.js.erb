@@ -1,0 +1,13 @@
+<% if ! @item_type.errors.any? %>
+  if (!$("#item-type-table-header").is(":visible"))
+    $("#item-type-table-header").fadeIn(100);
+
+  if ($("#no-item-types-alert").is(":visible"))
+    $("#no-item-types-alert").fadeOut(100);
+
+  $("<%= escape_javascript(render @item_type) %>").appendTo("#item-types-table-body").hide().fadeIn(100);
+  $("#notice").fadeOut(100, function() {
+    $(this).html("Item type '<%= @item_type.name %>' created.");
+    $(this).fadeIn(100);
+  });
+<% end %>

@@ -1,25 +1,57 @@
-<div class="jumbotron">
+<div class="page-header">
   <h1>Item Types</h1>
 </div>
 <div class="row">
   <div class="col-sm-12">
-    <% if @item_types.length == 0 %>
-      <div class="alert alert-info">There are no defined item types.</div>
-    <% else %>
-      <div class="row">
-        <div class="col-sm-2"><strong>Name</strong></div>
-        <div class="col-sm-6"><strong>Description</strong></div>
-        <div class="col-sm-2 text-center"><strong>Items</strong></div>
-        <div class="col-sm-2 text-center"><strong>Properties</strong></div>
+    <div class="well well-sm">
+      <a id="new-item-type-button" href="#" class="btn btn-default" data-toggle="modal" data-target="#new-item-type-modal">New +</a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div id="no-item-types-alert" class="alert alert-info <%= "collapse" if @item_types.length > 0 %>">There are no defined item types.</div>
+    <div id="notice" class="alert alert-success collapse"></div>
+    <%= render 'layouts/errorlist' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div id="item-types-table-header" class="row <%= "collapse" if @item_types.length == 0 %>">
+      <div class="col-sm-2"><strong>Name</strong></div>
+      <div class="col-sm-6"><strong>Description</strong></div>
+      <div class="col-sm-2 text-center"><strong>Items</strong></div>
+      <div class="col-sm-2 text-center"><strong>Properties</strong></div>
+    </div>
+    <div id="item-types-table-body">
+      <%= render @item_types %>
+    </div>
+  </div>
+</div>
+
+<div id="new-item-type-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">New Item Type</h4>
       </div>
-    <% end %>
-    <% @item_types.each do |item_type| %>
-      <div class="row">
-        <div class="col-sm-2"><%= item_type.name %></div>
-        <div class="col-sm-6"><%= item_type.description %></div>
-        <div class="col-sm-2 text-center"><%= item_type.items.length %></div>
-        <div class="col-sm-2 text-center"><%= item_type.item_property_definitions.length %></div>
-      </div>
-    <% end %>
+      <div class="modal-body">
+        <%= form_for(@new_item_type, :url => create_item_type_path, :html => { :id => "new-item-type-form", :class => "form" }, remote: true) do |f| %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, :class => "form-control", :autofocus => true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_field :description, :class => "form-control" %>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <%= f.submit :class => "btn btn-primary" %>
+          </div>
+        <% end %>
+    </div>
   </div>
 </div>
