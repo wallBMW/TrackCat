@@ -7,7 +7,7 @@ class ItemTypesController < ApplicationController
     @item_type = ItemType.new(create_params)
 
     if @item_type.save
-      @item_type
+      render :json => @item_type
     else
       render :json => {:errors => @item_type.errors.full_messages }, status: :unprocessable_entity
     end
