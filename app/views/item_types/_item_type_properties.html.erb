@@ -1,0 +1,12 @@
+<div class="col-sm-12 item-type-properties">
+  <div class="row">
+    <div class="col-sm-12">
+      <strong>Defined Properties</strong>
+    </div>
+    <% defs.each do |prop_def| %>
+      <div id="prop-def-<%= prop_def.id %>" class="col-sm-3">
+        <%= prop_def.name %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -9,6 +9,10 @@ class ItemTypesControllerTest < ActionController::TestCase
     assert_routing({ method: "post", path: "/itemtypes/create" }, { controller: "item_types", action: "create" })
   end
 
+  test "/itemtypes/:id should route to item_types show" do
+    assert_routing "/itemtypes/1", { controller: "item_types", action: "show", id: "1" }
+  end
+
   test "/itemtypes should contain list of all item types" do
     get :index
     assert_response :success
@@ -29,5 +33,10 @@ class ItemTypesControllerTest < ActionController::TestCase
     assert_response :unprocessable_entity
     errors = JSON.parse(response.body)
     assert errors.length > 0
+  end
+
+  test "/itemtypes/:id should return a js file to build the item type detail" do
+    xhr :get, :show, format: :js, id: ItemType.first.id
+    assert_response :success
   end
 end

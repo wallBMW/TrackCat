@@ -15,6 +15,10 @@ class ItemTypesController < ApplicationController
     end
   end
 
+  def show
+    @item_type = ItemType.find(params[:id])
+  end
+
   private
     def create_params
       params.require(:item_type).permit(:name, :description)

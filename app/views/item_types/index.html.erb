@@ -55,3 +55,16 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(function() {
+    $(document).on("click", "div.item-row", function() {
+      $.ajax({
+        url: "/itemtypes/" + $(this).find("div.item-type-id").html(),
+        processData: false,
+        contentType: false,
+        dataType: 'script'
+      });
+    });
+  });
+</script>
