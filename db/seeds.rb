@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+area1 = Area.create(name: "Tech Services Storage", description: "PC bays", location: "Room 27 Forney")
