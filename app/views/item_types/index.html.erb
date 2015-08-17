@@ -59,11 +59,20 @@
 <script>
   $(function() {
     $(document).on("click", "div.item-row", function() {
+      if ($(this).find(".item-type-properties").length)
+        return;
+
       $.ajax({
         url: "/itemtypes/" + $(this).find("div.item-type-id").html(),
         processData: false,
         contentType: false,
         dataType: 'script'
+      });
+    });
+
+    $(document).on("click", "a.close-properties", function() {
+      $(this).closest("div.item-type-properties").slideUp(150, function() {
+        $(this).remove();
       });
     });
   });
