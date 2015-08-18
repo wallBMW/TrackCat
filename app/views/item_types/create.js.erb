@@ -5,9 +5,11 @@
   if ($("#no-item-types-alert").is(":visible"))
     $("#no-item-types-alert").fadeOut(100);
 
-  $("<%= escape_javascript(render @item_type) %>").appendTo("#item-types-table-body").hide().fadeIn(100);
-  $("#notice").fadeOut(100, function() {
+  $("<%= escape_javascript(render @item_type) %>").appendTo("#item-types-table-body").hide().fadeIn(150);
+  $("#notice").fadeOut(150, function() {
     $(this).html("Item type '<%= @item_type.name %>' created.");
-    $(this).fadeIn(100);
+    $(this).removeClass("alert-info alert-success");
+    $(this).addClass("alert-success");
+    $(this).fadeIn(150);
   });
 <% end %>
