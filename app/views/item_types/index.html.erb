@@ -56,6 +56,34 @@
   </div>
 </div>
 
+<div id="update-item-type-modal" class="modal fade" role="dialog" data-remote="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update <span class="item-type-name"></span></h4>
+      </div>
+      <div class="modal-body">
+        <form id="update-item-type-form" class="form">
+          <input type="hidden" class="item-type-id">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control item-type-name-val">
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control item-type-description-val">
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
 <script>
   $(function() {
     $(document).on("click", "div.item-row", function() {
@@ -72,6 +100,28 @@
         url: "/itemtypes/" + $(this).find("div.item-type-id").html(),
         processData: false,
         contentType: false,
+        dataType: 'script'
+      });
+    });
+
+    $(document).on("click", ".update-item-type", function() {
+      update_modal = $("#update-item-type-modal");
+      item_type = $(this).closest(".item-type-row");
+
+      update_modal.find(".item-type-id").val(item_type.find(".item-type-id").html());
+      update_modal.find(".item-type-name").html(item_type.find(".item-type-name").html());
+      update_modal.find(".item-type-name-val").val(item_type.find(".item-type-name").html());
+      update_modal.find(".item-type-description-val").val(item_type.find(".item-type-description").html());
+
+      update_modal.modal("show");
+    });
+
+    $("#update-item-type-modal").on("submit", function() {
+      $.ajax({
+        url: "/itemtypes/" + $("#update-item-type-modal").find(".item-type-id").val(),
+        method: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify({ "name": $("#update-item-type-modal .item-type-name-val").val(), "description": $("#update-item-type-modal .item-type-description-val").val() }),
         dataType: 'script'
       });
     });

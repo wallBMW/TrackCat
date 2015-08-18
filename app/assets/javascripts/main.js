@@ -15,7 +15,7 @@ $(function() {
   });
 
   // hide modals on ajax complete
-  $("form").on("ajax:complete", function(event, xhr, status, error) {
+  $("form").on("ajax:complete submit", function(event, xhr, status, error) {
     if ($(this).closest("div.modal").length) {
       $(this).closest("div.modal").modal("hide");
     }
@@ -24,3 +24,10 @@ $(function() {
   // bootstrap-ify tooltips
   $('body').tooltip({selector: '[data-toggle=tooltip]'});
 });
+
+function update_attr(selector, new_val) {
+  $(selector).fadeOut(150, function() {
+    $(this).html(new_val);
+    $(this).fadeIn(150);
+  });
+}

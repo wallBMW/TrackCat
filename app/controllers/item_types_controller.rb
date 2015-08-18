@@ -19,6 +19,16 @@ class ItemTypesController < ApplicationController
     @item_type = ItemType.find(params[:id])
   end
 
+  def update
+    @item_type = ItemType.find(params[:id])
+
+    if @item_type.update_attributes(update_params)
+      @item_type
+    else
+      render :json => {:errors => @item_type.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     begin
       @item_type = ItemType.find(params[:id]).destroy
@@ -29,6 +39,10 @@ class ItemTypesController < ApplicationController
 
   private
     def create_params
+      params.require(:item_type).permit(:name, :description)
+    end
+
+    def update_params
       params.require(:item_type).permit(:name, :description)
     end
 end

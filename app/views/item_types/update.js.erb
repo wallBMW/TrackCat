@@ -1,0 +1,4 @@
+<% if ! @item_type.errors.any? %>
+  update_attr("#item-<%= @item_type.id %> .item-type-name", "<%= @item_type.name %>");
+  update_attr("#item-<%= @item_type.id %> .item-type-description", "<%= @item_type.description %>");
+<% end %>

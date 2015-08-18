@@ -10,8 +10,13 @@
 
 <script>
   $(function() {
-    $("form").on("ajax:error", function(event, xhr, status, error) {
-      handleErrors($.parseJSON(xhr.responseText).errors);
+    $("form").on("ajax:error error", function(event, xhr, status, error) {
+      if (xhr.responseText.length > 0) {
+        handleErrors($.parseJSON(xhr.responseText).errors);
+      } else {
+        notify("An error ocurred during form submission.");
+        this.modal('hide');
+      }
     }).on("ajax:beforeSend", function(event, xhr, settings) {
       $("#error-message").hide();
     });

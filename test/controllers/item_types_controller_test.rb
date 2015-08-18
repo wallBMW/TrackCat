@@ -17,6 +17,10 @@ class ItemTypesControllerTest < ActionController::TestCase
     assert_routing({ method: "delete", path: "/itemtypes/1" }, { controller: "item_types", action: "destroy", id: "1" })
   end
 
+  test "/itemtypes/:id method: put should route to item_types update" do
+    assert_routing({ method: "put", path: "/itemtypes/1" }, { controller: "item_types", action: "update", id: "1" })
+  end
+
   test "/itemtypes should contain list of all item types" do
     get :index
     assert_response :success
@@ -49,6 +53,11 @@ class ItemTypesControllerTest < ActionController::TestCase
       xhr :delete, :destroy, id: ItemType.first
     end
 
+    assert_response :success
+  end
+
+  test "/itemtypes/:id method: put should update item type" do
+    xhr :put, :update, id: ItemType.first, item_type: { :name => 'SAD', :description => 'Solid Ate Drive' }
     assert_response :success
   end
 end
