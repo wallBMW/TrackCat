@@ -1,7 +1,13 @@
-<div id="item-<%= item_type.id %>" class="row item-row">
-  <div class="collapse item-type-id"><%= item_type.id %></div>
-  <div class="col-sm-2"><%= item_type.name %></div>
-  <div class="col-sm-6"><%= item_type.description %></div>
-  <div class="col-sm-2 text-center"><%= item_type.items.length %></div>
-  <div class="col-sm-2 text-center"><%= item_type.item_property_definitions.length %></div>
+<div id="item-<%= item_type.id %>" class="row">
+  <div class="item-row clickable">
+    <div class="collapse item-type-id"><%= item_type.id %></div>
+    <div class="col-sm-2"><%= item_type.name %></div>
+    <% if item_type.description.length > 0 %>
+      <div class="col-sm-6"><%= item_type.description %></div>
+    <% else %>
+      <div class="col-sm-6 text-muted">No description given.</div>
+    <% end %>
+    <div class="col-sm-2 text-center"><%= item_type.items.length %></div>
+    <div class="col-sm-2 text-center"><%= item_type.item_property_definitions.length %></div>
+  </div>
 </div>

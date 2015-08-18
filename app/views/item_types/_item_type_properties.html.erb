@@ -1,22 +1,28 @@
 <div class="col-sm-12 item-type-properties">
   <div class="row">
-    <div class="col-sm-2">
-      <strong>Defined Properties</strong>
-    </div>
-    <div class="col-sm-2 col-sm-offset-8 text-right">
-      <a class="btn btn-xs btn-default" href="#">Add +</a>
-      <a class="btn btn-xs btn-default close-properties" href="#">&times;</a>
-    </div>
-    <% if defs.length == 0 %>
-      <div class="col-sm-12">
-        <div class="alert alert-info">No properties defined.</div>
-      </div>
-    <% else %>
-      <% defs.each do |prop_def| %>
-        <div id="prop-def-<%= prop_def.id %>" class="col-sm-3">
-          <%= prop_def.name %>
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Defined Properties
+          <a class="btn btn-xs btn-default" href="#">Add +</a>
+          <a class="btn btn-xs btn-default" href="#">Edit</a>
+          <a class="btn btn-xs btn-default" href="#">Remove</a>
+        </div>"
+        <div class="panel-body">
+          <div class="row">
+            <% if defs.length == 0 %>
+              <div class="col-sm-12">
+                <div class="alert alert-info">No properties defined.</div>
+              </div>
+            <% else %>
+              <% defs.each do |prop_def| %>
+                <div id="prop-def-<%= prop_def.id %>" class="col-sm-3">
+                  <%= prop_def.name %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-      <% end %>
-    <% end %>
+      </div>
+    </div>
   </div>
 </div>
