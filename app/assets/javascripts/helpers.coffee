@@ -4,7 +4,7 @@ $.rails.allowAction = (element) ->
   $link = element.clone()
     .removeAttr('class')
     .removeAttr('data-confirm')
-    .addClass('btn').addClass('btn-danger')
+    .addClass('text-danger')
     .html("I know what I'm doing.")
 
   modal_html = """
@@ -19,7 +19,7 @@ $.rails.allowAction = (element) ->
                        <p>This is <strong>permanent</strong>.</p>
                      </div>
                      <div class="modal-footer">
-                       <a data-dismiss="modal" class="btn">Cancel</a>
+                       <a data-dismiss="modal" class="btn btn-default">Cancel</a>
                      </div>
                    </div>
                  </div>
@@ -27,5 +27,7 @@ $.rails.allowAction = (element) ->
                """
   $modal_html = $(modal_html)
   $modal_html.find('.modal-footer').append($link)
+  $link.on('click', () -> $modal_html.modal("hide"))
+
   $modal_html.modal()
   return false

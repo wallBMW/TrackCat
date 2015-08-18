@@ -19,6 +19,14 @@ class ItemTypesController < ApplicationController
     @item_type = ItemType.find(params[:id])
   end
 
+  def destroy
+    begin
+      @item_type = ItemType.find(params[:id]).destroy
+    rescue ActiveRecord::RecordNotFound
+      render :json => { :error => "Unable to delete item type." }, status: :unprocessable_entity
+    end
+  end
+
   private
     def create_params
       params.require(:item_type).permit(:name, :description)

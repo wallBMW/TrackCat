@@ -5,8 +5,8 @@
         <div class="panel-heading">Defined Properties
           <a class="btn btn-xs btn-default" href="#">Add +</a>
           <a class="btn btn-xs btn-default" href="#">Edit</a>
-          <a class="btn btn-xs btn-default" href="#">Remove</a>
-        </div>"
+          <%= link_to "Remove", destroy_item_type_path(item_type), class: 'btn btn-xs btn-danger', data: {confirm: "Are you sure you want to delete '#{item_type.name}'?"}, method: :delete, remote: true %>
+        </div>
         <div class="panel-body">
           <div class="row">
             <% if defs.length == 0 %>

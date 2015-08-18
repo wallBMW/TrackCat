@@ -13,6 +13,10 @@ class ItemTypesControllerTest < ActionController::TestCase
     assert_routing "/itemtypes/1", { controller: "item_types", action: "show", id: "1" }
   end
 
+  test "/itemtypes/:id method: delete should route to item_types destroy" do
+    assert_routing({ method: "delete", path: "/itemtypes/1" }, { controller: "item_types", action: "destroy", id: "1" })
+  end
+
   test "/itemtypes should contain list of all item types" do
     get :index
     assert_response :success
@@ -37,6 +41,14 @@ class ItemTypesControllerTest < ActionController::TestCase
 
   test "/itemtypes/:id should return a js file to build the item type detail" do
     xhr :get, :show, format: :js, id: ItemType.first.id
+    assert_response :success
+  end
+
+  test "/itemtypes/:id method: delete should delete item type, and return it" do
+    assert_difference('ItemType.count', -1, "The item type should be destroyed") do
+      xhr :delete, :destroy, id: ItemType.first
+    end
+
     assert_response :success
   end
 end
