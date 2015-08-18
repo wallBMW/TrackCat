@@ -26,6 +26,11 @@ $(function() {
 });
 
 function update_attr(selector, new_val) {
+  element = $(selector);
+
+  if (!element.length || element.html() == new_val)
+    return;
+
   $(selector).fadeOut(150, function() {
     $(this).html(new_val);
     $(this).fadeIn(150);

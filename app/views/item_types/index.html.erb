@@ -122,7 +122,19 @@
         method: "PUT",
         contentType: "application/json",
         data: JSON.stringify({ "name": $("#update-item-type-modal .item-type-name-val").val(), "description": $("#update-item-type-modal .item-type-description-val").val() }),
-        dataType: 'script'
+        dataType: 'script',
+        error: function(xhr, status, error) {
+          if (xhr.responseText.length > 0) {
+            try{
+              handleErrors($.parseJSON(xhr.responseText).errors);
+            }catch(e){
+              notify("An error ocurred during form submission.", "danger");
+            }
+          } else {
+            notify("An error ocurred during form submission.", "danger");
+            this.modal('hide');
+          }
+        }
       });
     });
   });

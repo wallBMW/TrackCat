@@ -1,4 +1,10 @@
 <% if ! @item_type.errors.any? %>
   update_attr("#item-<%= @item_type.id %> .item-type-name", "<%= @item_type.name %>");
   update_attr("#item-<%= @item_type.id %> .item-type-description", "<%= @item_type.description %>");
+
+  <% if @item_type.description.length > 0 %>
+    $("#item-<%= @item_type.id %> .item-type-description").removeClass("text-muted");
+  <% else %>
+
+  <% end %>
 <% end %>
