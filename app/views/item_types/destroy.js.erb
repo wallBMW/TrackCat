@@ -1,9 +1,4 @@
 $("#item-<%= @item_type.id %>").slideUp(150, function() {
   $(this).remove();
-  $("#notice").fadeOut(150, function() {
-    $(this).html("Item type '<%= @item_type.name %>' removed.");
-    $(this).removeClass("alert-info alert-success");
-    $(this).addClass("alert-info");
-    $(this).fadeIn(150);
-  });
+  notify("Item type '<%= @item_type.name %>' removed.", "info");
 });

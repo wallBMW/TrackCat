@@ -6,10 +6,5 @@
     $("#no-item-types-alert").fadeOut(100);
 
   $("<%= escape_javascript(render @item_type) %>").appendTo("#item-types-table-body").hide().fadeIn(150);
-  $("#notice").fadeOut(150, function() {
-    $(this).html("Item type '<%= @item_type.name %>' created.");
-    $(this).removeClass("alert-info alert-success");
-    $(this).addClass("alert-success");
-    $(this).fadeIn(150);
-  });
+  notify("Item type '<%= @item_type.name %>' created.", "success");
 <% end %>

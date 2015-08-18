@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div id="notice-bar" class="alert collapse" role="alert"></div>
+  </div>
+</div>
+
+<script>
+  function notify(msg, alert) {
+    $("#notice-bar").slideUp(150, function() {
+      $(this).html(msg);
+      $(this).removeClass(function(index, css) {
+        return (css.match(/(^|\s)alert-\S+/g) || []).join(' ');
+      });
+      $(this).addClass("alert-" + alert);
+
+      $(this).slideDown(150);
+    });
+  }
+</script>
