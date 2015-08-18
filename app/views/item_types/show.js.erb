@@ -1,4 +1,6 @@
 <% if ! @item_type.errors.any? %>
   $("#item-<%= @item_type.id %> .item-type-properties").remove();
   $("<%= escape_javascript(render 'item_type_properties', :item_type => @item_type, :defs => @item_type.item_property_definitions) %>").appendTo("#item-<%= @item_type.id %>").hide().slideDown(150);
+
+  $("#item-<%= @item_type.id %>").addClass("selected");
 <% end %>

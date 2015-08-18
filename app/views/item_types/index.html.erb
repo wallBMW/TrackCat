@@ -59,8 +59,9 @@
 <script>
   $(function() {
     $(document).on("click", "div.item-row", function() {
-      if ($(this).parent().find(".item-type-properties").length) {
-        $(this).parent().find(".item-type-properties").slideUp(150, function() {
+      if ($(this).closest(".item-type-row").find(".item-type-properties").length) {
+        $(this).closest(".item-type-row").find(".item-type-properties").slideUp(150, function() {
+            $(this).closest(".item-type-row").removeClass("selected");
             $(this).remove();
         });
 
