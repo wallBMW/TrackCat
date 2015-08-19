@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'coveralls', require: false
+
 gem 'bootstrap-sass', '~> 3.2.0'
 
 # Get timezone info through local system
