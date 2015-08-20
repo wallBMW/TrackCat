@@ -84,6 +84,30 @@
   </div>
 </div>
 
+<div id="add-item-type-property-modal" class="modal fade" role="dialog" data-remote="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add new property for <span class="item-type-name"></span></h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@new_item_type_property_definition, :url => create_prop_def_path, :html => { :id => "add-item-type-property-form", :class => "form" }, remote: true) do |f| %>
+          <%= f.hidden_field :item_type_id, :class => "item-type-id" %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, :class => "form-control item-type-property-name-val", :autofocus => true %>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <%= f.submit :class => 'btn btn-primary' %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
 <script>
   $(function() {
     $(document).on("click", "div.item-row", function() {
@@ -114,6 +138,15 @@
       update_modal.find(".item-type-description-val").val(item_type.find(".item-type-description").html());
 
       update_modal.modal("show");
+    });
+
+    $(document).on("click", ".add-item-type-property", function() {
+      add_modal = $("#add-item-type-property-modal");
+      item_type = $(this).closest(".item-type-row");
+
+      add_modal.find(".item-type-id").val(item_type.find(".item-type-id").html());
+      add_modal.find(".item-type-name").html(item_type.find(".item-type-name").html());
+      add_modal.modal("show");
     });
 
     $("#update-item-type-modal").on("submit", function() {

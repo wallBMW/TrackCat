@@ -1,1 +1,10 @@
 <% #TODO: fill this in. this is just a stub to satisfy unit tests %>
+<% if ! @item_property_definition.errors.any? %>
+  <% if @item_property_definition.item_type.item_property_definitions.count > 0 %>
+    $("#item-<%= @item_property_definition.item_type.id %> .properties-list div.alert").fadeOut(150, function() {
+      $(this).remove();
+    });
+  <% end %>
+
+  $("<%= escape_javascript(render 'item_type_property', :prop_def => @item_property_definition) %>").appendTo("#item-<%= @item_property_definition.item_type.id %> .properties-list").hide().fadeIn(150);
+<% end %>

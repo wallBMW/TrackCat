@@ -2,6 +2,7 @@ class ItemTypesController < ApplicationController
   def index
     @item_types = ItemType.all
     @new_item_type = ItemType.new
+    @new_item_type_property_definition = ItemPropertyDefinition.new
   end
 
   def create

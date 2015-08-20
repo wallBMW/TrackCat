@@ -3,26 +3,19 @@
     <div class="col-sm-12">
       <div class="panel panel-default">
         <div class="panel-heading">Defined Properties
-          <a class="btn btn-xs btn-default" href="#">Add +</a>
+          <a class="btn btn-xs btn-default add-item-type-property" href="#">Add +</a>
           <a class="btn btn-xs btn-default update-item-type" href="#">Edit</a>
           <%= link_to "Remove", destroy_item_type_path(item_type), class: 'btn btn-xs btn-danger', data: {confirm: "Are you sure you want to delete '#{item_type.name}'?"}, method: :delete, remote: true %>
         </div>
         <div class="panel-body">
-          <div class="row">
+          <div class="row properties-list">
             <% if defs.length == 0 %>
               <div class="col-sm-12">
                 <div class="alert alert-info">No properties defined.</div>
               </div>
             <% else %>
               <% defs.each do |prop_def| %>
-                <div id="prop-def-<%= prop_def.id %>" class="col-sm-3">
-                  <div class="well well-sm">
-                    <div class="row">
-                      <div class="col-xs-9"><%= prop_def.name %></div>
-                      <div class="col-xs-3 text-right">&times;</div>
-                    </div>
-                  </div>
-                </div>
+                <%= render 'item_type_property', :prop_def => prop_def %>
               <% end %>
             <% end %>
           </div>
