@@ -64,9 +64,25 @@ class ItemTypesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "/itemtypes/:id method: delete should return error on not found" do
+    xhr :delete, :destroy, id: -1
+
+    assert_response :unprocessable_entity
+    errors = JSON.parse(response.body)
+    assert errors.length > 0
+  end
+
   test "/itemtypes/:id method: put should update item type" do
     xhr :put, :update, id: ItemType.first, item_type: { :name => 'SAD', :description => 'Solid Ate Drive' }
     assert_response :success
+  end
+
+  test "/itemtypes/:id mtehod: put should return errors on failure" do
+    xhr :put, :update, id: ItemType.first, item_type: { :name => 'S', :description => 'Should not Work' } #name too short
+
+    assert_response :unprocessable_entity
+    errors = JSON.parse(response.body)
+    assert errors.length > 0
   end
 
   test "/itemtypes/createpropdef should create a new item property definition" do
