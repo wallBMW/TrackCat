@@ -17,7 +17,6 @@ class AreaController < ApplicationController
       else
         render :json => {:errors => @area.errors.full_messages}, status: :unprocessable_entity
       end
-
     end
 
     def update
@@ -35,7 +34,7 @@ class AreaController < ApplicationController
       begin
         @area = Area.find(params[:id]).destroy
       rescue ActiveRecord::RecordNotFound
-        render :json => {:error "unable to delete area."}, status: :unprocessable_entity
+        render :json => {:error => "unable to delete area."}, status: :unprocessable_entity
       end
     end
 
