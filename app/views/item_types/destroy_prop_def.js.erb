@@ -1,1 +1,9 @@
-<% #TODO: fill this in. this is just a stub to satisfy unit tests %>
+<% if ! @item_property_definition.errors.any? %>
+  $("#prop-def-<%= @item_property_definition.id %>").fadeOut(150, function() {
+    $(this).remove();
+
+    <% if @item_property_definition.item_type.item_property_definitions.count == 0 %>
+      $("<div class='col-sm-12'><div class='alert alert-info'>No properties defined.</div></div>").appendTo("#item-<%= @item_property_definition.item_type.id %> .properties-list");
+    <% end %>
+  });
+<% end %>

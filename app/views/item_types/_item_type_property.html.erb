@@ -2,7 +2,9 @@
   <div class="well well-sm">
     <div class="row">
       <div class="col-xs-9"><%= prop_def.name %></div>
-      <div class="col-xs-3 text-right destroy-item-property-def">&times;</div>
+      <div class="col-xs-3 text-right">
+        <%= link_to "&times;".html_safe, destroy_prop_def_path(prop_def), class: 'btn btn-xs btn-default', data: {confirm: "Are you sure you want to delete '#{prop_def.name}'?"}, method: :delete, remote: true %>
+      </div>
     </div>
   </div>
 </div>
