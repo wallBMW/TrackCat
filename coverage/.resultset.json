@@ -1,7 +1,149 @@
 {
   "MiniTest": {
     "coverage": {
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/area.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item_history.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item_property.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item_property_definition.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item_property_history.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        7,
+        7,
+        7,
+        7,
+        7,
+        null,
+        7,
+        null,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item_type.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/user.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/controllers/item_types_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        null,
+        2,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        2,
+        null,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/helpers/area_helper.rb": [
+        1,
+        null
+      ],
+      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/helpers/item_types_helper.rb": [
+        1,
+        null
+      ]
     },
-    "timestamp": 1440028008
+    "timestamp": 1440031335
   }
 }
