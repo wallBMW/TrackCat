@@ -2,6 +2,7 @@ class AreaController < ApplicationController
 
     def index
       @areas = Area.all
+      @new_area = Area.new
     end
 
     def show
@@ -9,35 +10,41 @@ class AreaController < ApplicationController
     end
 
     def create
-      @areas = Area.all
-      @area = Area.create(area_params)
-    end
+      @area = Area.new(create_params)
 
-    def new
-      @area = Area.new
-    end
+      if @area.save
+        @area
+      else
+        render :json => {:errors => @area.errors.full_messages}, status: :unprocessable_entity
+      end
 
-    def edit
-      @area = Area.find(params[:id])
     end
 
     def update
       @areas = Area.all
       @area = Area.find(params[:id])
 
-      @area.update_attributes(area_params)
+      if @area.update_attributes(update_params)
+        @area
+      else
+        render :json => {:errors => @area.errors.full_messages}, status: :unprocessable_entity
+      end
     end
 
     def destroy
-      @areas = Area.all
-      @area = Area.find(params[:id])
-      @area.destroy
+      begin
+        @area = Area.find(params[:id]).destroy
+      rescue ActiveRecord::RecordNotFound
+        render :json => {:error "unable to delete area."}, status: :unprocessable_entity
+      end
     end
 
-    def area_params
+    def create_params
       params.require(:area).permit(:description, :location)
     end
 
-
+    def update_params
+      params.require(:area).permit(:description, :location)
+    end
 
 end

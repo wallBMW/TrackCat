@@ -23,12 +23,11 @@ ActiveRecord::Schema.define(version: 20150816015448) do
 
   create_table "item_histories", force: :cascade do |t|
     t.integer  "item_id"
-    t.integer  "item_type_id"
     t.integer  "user_id"
     t.integer  "old_area_id"
     t.integer  "new_area_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "item_properties", force: :cascade do |t|

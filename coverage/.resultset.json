@@ -1,7 +1,7 @@
 {
   "MiniTest": {
     "coverage": {
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/area.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/models/area.rb": [
         1,
         1,
         1,
@@ -10,19 +10,7 @@
         1,
         null
       ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item_history.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/models/item_history.rb": [
         1,
         1,
         1,
@@ -39,7 +27,7 @@
         null,
         null
       ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item_property.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/models/item_property.rb": [
         1,
         1,
         1,
@@ -48,7 +36,7 @@
         1,
         null
       ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item_property_definition.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/models/item_property_definition.rb": [
         1,
         1,
         null,
@@ -56,7 +44,7 @@
         1,
         null
       ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item_property_history.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/models/item_property_history.rb": [
         1,
         1,
         1,
@@ -78,7 +66,7 @@
         null,
         null
       ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/item_type.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/models/item_type.rb": [
         1,
         1,
         1,
@@ -87,7 +75,19 @@
         1,
         null
       ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/models/user.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/models/item.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/Connor/Desktop/TrackCat/app/models/user.rb": [
         1,
         null,
         1,
@@ -96,7 +96,8 @@
         1,
         null
       ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/controllers/item_types_controller.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/controllers/item_types_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -107,7 +108,6 @@
         2,
         null,
         2,
-        null,
         1,
         null,
         1,
@@ -116,34 +116,78 @@
         null,
         1,
         1,
+        null,
+        null,
+        1,
+        2,
+        null,
+        2,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        2,
+        null,
+        2,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
         null,
         null,
         1,
         1,
         2,
         null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        null,
         null
       ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/controllers/application_controller.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/helpers/application_helper.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/helpers/area_helper.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/helpers/area_helper.rb": [
         1,
         null
       ],
-      "C:/Users/Henbo/Documents/code/projects/TrackCat/app/helpers/item_types_helper.rb": [
+      "/Users/Connor/Desktop/TrackCat/app/helpers/item_types_helper.rb": [
         1,
         null
       ]
     },
-    "timestamp": 1440031335
+    "timestamp": 1440089618
   }
 }

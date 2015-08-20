@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   post '/itemtypes/createpropdef' => 'item_types#create_prop_def', as: 'create_prop_def'
   delete '/itemtypes/destroypropdef/:id' => 'item_types#destroy_prop_def', as: 'destroy_prop_def'
 
-  get '/areas' => 'area#index'
+  get '/areas' => 'area#index', as: 'areas'
+  get '/areas/:id' => 'area#show', as: 'show_area'
+  put '/areas/:id' => 'area#update', as: 'update_area'
+  delete '/areas/:id' => 'area#destroy', as: 'destroy_area'
+  post '/areas/create' => 'area#create', as: 'create_area'
 end

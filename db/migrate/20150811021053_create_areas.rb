@@ -3,7 +3,7 @@ class CreateAreas < ActiveRecord::Migration
     create_table :areas do |t|
       t.string :name, null: false
       t.string :description
-      t.string :location, unique: => true
+      t.string :location, unique: true
       t.timestamps null: false
     end
   end
