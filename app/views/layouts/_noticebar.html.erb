@@ -13,7 +13,15 @@
       });
       $(this).addClass("alert-" + alert);
 
-      $(this).slideDown(150);
+      notify_show();
     });
+  }
+
+  function notify_show() {
+    $("#notice-bar").slideDown(150);
+  }
+
+  function notify_hide() {
+    $("#notice-bar").slideUp(150);
   }
 </script>

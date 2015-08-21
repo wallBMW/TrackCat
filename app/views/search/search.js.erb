@@ -1,0 +1,29 @@
+<% if @areas.length > 0 %>
+  show_result("areas");
+  <% @areas.each do |area| %>
+    <% #TODO: make this a partial, to share functionality %>
+    $("<div class='col-xs-12 result'><h4><%= area.name %></h4><%= area.location %><br/><%= area.description %></div>").appendTo("#search-results .areas");
+  <% end %>
+<% end %>
+
+<% if @item_properties.length > 0 %>
+  show_result("items");
+  <% @item_properties.each do |prop| %>
+    <% #TODO: make this a partial, to share functionality %>
+    $("<div class='col-xs-12 result'><%= prop.item.item_type.name %>: <%= prop.value%><br/><i>area:</i> <%= prop.item.area.name %></div>").appendTo("#search-results .items");
+  <% end %>
+<% end %>
+
+<% if @item_types.length > 0 %>
+  show_result("item-types");
+  <% @item_types.each do |item_type| %>
+    <% #TODO: use the partial in item_types/_item_type share functionality %>
+    $("<div class='col-xs-12 result'><h4><%= item_type.name %></h4></div>").appendTo("#search-results .item-types");
+  <% end %>
+<% end %>
+
+console.log("results: a:<%= @areas.length %> ip:<%= @item_properties.length %> it:<%= @item_types.length %>")
+
+<% if @areas.empty? && @item_properties.empty? && @item_types.empty? %>
+  notify("No results found.", "info");
+<% end %>

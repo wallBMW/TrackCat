@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="page-header">
+      <h1>Item Search</h1>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="well well-sm">
+      <%= form_tag '/search', id: 'search-form', class: 'form-inline', remote: true do %>
+        <div class="form-group">
+          <%= text_field_tag 'criteria', nil, class: 'form-control', placeholder: "search criteria" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div id="search-results" class="row">
+  <div class="col-xs-12">
+    <%= render 'layouts/noticebar' %>
+  </div>
+  <div class="col-xs-12 areas collapse">
+    <div class="row">
+      <div class="col-xs-12"><h3>Area Matches</h3></div>
+    </div>
+  </div>
+  <div class="col-xs-12 item-types collapse">
+    <div class="row">
+      <div class="col-xs-12"><h3>Item Type Matches</h3></div>
+    </div>
+  </div>
+  <div class="col-xs-12 items collapse">
+    <div class="row">
+      <div class="col-xs-12"><h3>Item Matches</h3></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $("#criteria").keyup(function() {
+      notify_hide();
+      hide_all_results();
+
+      if ($(this).val().length > 2) {
+        $(this).closest("form").submit();
+      }
+    });
+  });
+
+  function hide_result(search_type) {
+    $("#search-results ." + search_type).hide();
+    $("#search-results ." + search_type + " .result").remove();
+  }
+
+  function show_result(search_type) {
+    $("#search-results ." + search_type).fadeIn(150);
+  }
+
+  function hide_all_results() {
+    hide_result("areas");
+    hide_result("item-types");
+    hide_result("items");
+  }
+</script>
