@@ -5,5 +5,7 @@
     <% if @item_property_definition.item_type.item_property_definitions.count == 0 %>
       $("<div class='col-sm-12'><div class='alert alert-info'>No properties defined.</div></div>").appendTo("#item-<%= @item_property_definition.item_type.id %> .properties-list");
     <% end %>
+
+    $("#item-<%= @item_property_definition.item_type.id %> .item-type-properties-length").html("<%= @item_property_definition.item_type.item_property_definitions.length %>");
   });
 <% end %>

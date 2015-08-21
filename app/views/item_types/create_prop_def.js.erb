@@ -6,4 +6,5 @@
   <% end %>
 
   $("<%= escape_javascript(render 'item_type_property', :prop_def => @item_property_definition) %>").appendTo("#item-<%= @item_property_definition.item_type.id %> .properties-list").hide().fadeIn(150);
+  $("#item-<%= @item_property_definition.item_type.id %> .item-type-properties-length").html("<%= @item_property_definition.item_type.item_property_definitions.length %>");
 <% end %>
