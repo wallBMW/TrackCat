@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   put '/areas/:id' => 'area#update', as: 'update_area'
   delete '/areas/:id' => 'area#destroy', as: 'destroy_area'
   post '/areas/create' => 'area#create', as: 'create_area'
+
+  get '/search' => 'search#index', as: 'search'
+  post '/search' => 'search#search', as: 'perform_search'
 end
