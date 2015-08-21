@@ -21,3 +21,4 @@
 
 #Ignore coverage artifacts
 /coverage
+coverage/.resultset.json
