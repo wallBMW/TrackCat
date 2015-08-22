@@ -1,6 +1,7 @@
 area1 = Area.create(name: "Tech Services Storage", description: "PC bays", location: "Room 27 Forney")
-area2 = Area.create(name: "Floor 4 Surplus Closet", description: "PCs and Keyboards, various cables", location: "Fourth Floor, Room 57")
-area3 = Area.create(name: "Floor 8 Empty Cube", description: "Spare monitors, cables", location: "Eight Floor, Cube 23")
+area2 = Area.create(name: "AV Area", description: "Projectos/Control Panels", location: "Room 22 McIver")
+area3 = Area.create(name: "Floor 4 Surplus Closet", description: "PCs and Keyboards, various cables", location: "Fourth Floor, Room 57")
+area4 = Area.create(name: "Floor 8 Empty Cube", description: "Spare monitors, cables", location: "Eight Floor, Cube 23")
 
 item_type1 = ItemType.create(name: "CPU", description: "The central processing unit of a computer.")
 item_type2 = ItemType.create(name: "RAM", description: "On board memory.")

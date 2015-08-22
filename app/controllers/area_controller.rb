@@ -39,11 +39,11 @@ class AreaController < ApplicationController
     end
 
     def create_params
-      params.require(:area).permit(:description, :location)
+      params.require(:area).permit(:name, :description, :location)
     end
 
     def update_params
-      params.require(:area).permit(:description, :location)
+      params.require(:area).permit(:name, :description, :location)
     end
 
 end
